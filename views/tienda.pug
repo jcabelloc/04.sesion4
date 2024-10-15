@@ -4,7 +4,7 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
-        title Mi Tienda - PUG
+        title #{titulo}
         link(rel="stylesheet", href="/css/main.css")
         link(rel="stylesheet", href="/css/producto.css")
     body
@@ -15,3 +15,19 @@ html(lang="en")
                         a.active(href="/") Tienda
                     li.main-header__item
                         a(href="/admin/crear-producto") Crear Producto 
+        main
+            if prods.length > 0
+                .grid
+                    each producto in prods
+                        article.card.product-item
+                            header.card__header
+                                h1.product__title #{producto.nombre}
+                            div.card__image
+                                img(src="https://cdn.pixabay.com/photo/2017/03/20/22/13/book-2160539_640.png", alt="Un libro")
+                            div.card__content
+                                h2.product__price S/ 19.99
+                                p.product__description Un libro sobre la historia de America
+                            .card__actions
+                                button.btn Agregar al Carrito
+            else
+                h1 No hay Productos

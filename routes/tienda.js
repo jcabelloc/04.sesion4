@@ -8,9 +8,8 @@ const adminData = require('./admin');
 const router = express.Router();
 
 router.get('/', (req, res, next) => {
-    console.log(adminData.productos); 
-    //res.sendFile(path.join(appDir, 'views', 'tienda.html'));
-    res.render('tienda');
+    const productos = adminData.productos
+    res.render('tienda', {prods: productos, titulo: "La Tienda PUG"});
 });
 
 module.exports = router;
