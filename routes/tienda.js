@@ -3,12 +3,12 @@ const express = require('express');
 
 const appDir = require('../utils/path');
 
+const adminData = require('./admin');
 
 const router = express.Router();
 
 router.get('/', (req, res, next) => {
-    // res.send('<h1>Hola desde Express</h1>');
-    // res.sendFile(path.join(__dirname, '..', 'views', 'tienda.html'));
+    console.log(adminData.productos); 
     res.sendFile(path.join(appDir, 'views', 'tienda.html'));
 });
 
